@@ -35,8 +35,18 @@ with open(file_to_load) as election_data:
         # Add a vote to that candidate's count
         candidate_votes[candidate_name] += 1
 
+# Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    # Save the final vote count to the text file.
+ 
+
 for candidate_name in candidate_votes:
-    # Retrieve vote count and percentage.
+    # Retrieve vote count and percentage. 
     votes = candidate_votes[candidate_name]
     vote_percentage = float(votes) / float(total_votes) * 100
     # Print each candidate, their voter count, and percentage to the
@@ -57,3 +67,4 @@ winning_candidate_summary = (
     f"-------------------------\n")
 
 print(winning_candidate_summary)
+election_results.text.write(candidate_results)
